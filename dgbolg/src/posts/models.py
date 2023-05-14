@@ -1,4 +1,5 @@
 from django.db import models
+from taggit.managers import TaggableManager
 
 # Create your models here.
 
@@ -21,6 +22,7 @@ class post(models.Model):
     content = models.TextField(max_length=15000)
     author = models.ForeignKey(author,related_name='post_author', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='posts')
+    tags = TaggableManager()
     
     def __str__(self):
         return self.title
