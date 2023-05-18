@@ -3,3 +3,4 @@ from.models import post
 # Create your views here.
 def post_list(request):
     date = post.objects.all()
+    return render(request, 'posts/posts.html',{})
