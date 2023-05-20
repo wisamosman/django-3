@@ -12,7 +12,7 @@ def post_detail(request,post_id):
 
 def new_post(request):
     if request.method == 'POST':
-        form = postForm(request.POST)
+        form = postForm(request.POST,request.FILLES)
         if form.is_valid():
             form.save()
 
