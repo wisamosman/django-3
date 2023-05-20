@@ -11,5 +11,10 @@ def post_detail(request,post_id):
     return render(request,'posts/detail.html',{'post':date})
 
 def new_post(request):
-    form = postForm()
+    if request.method == 'POST':
+        form = postForm(request.POST)
+
+    else:
+        form = postForm()    
+
     return render(request,'posts/new.html',{'form':form})
