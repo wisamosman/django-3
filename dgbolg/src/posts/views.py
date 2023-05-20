@@ -13,6 +13,8 @@ def post_detail(request,post_id):
 def new_post(request):
     if request.method == 'POST':
         form = postForm(request.POST)
+        if form.is_valid():
+            form.save()
 
     else:
         form = postForm()    
