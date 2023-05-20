@@ -11,5 +11,5 @@ def post_detail(request,post_id):
     return render(request,'posts/detail.html',{'post':date})
 
 def new_post(request):
-    from = postForm()
+    form = postForm()
     return render(request,'posts/new.html',{'form':form})
