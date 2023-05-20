@@ -12,4 +12,4 @@ def post_detail(request,post_id):
 
 def new_post(request):
     from = postForm()
-    return render(request,'posts/new.html',{})
+    return render(request,'posts/new.html',{'form':form})
