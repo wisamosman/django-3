@@ -12,11 +12,19 @@ def post_detail(request,post_id):
 
 def new_post(request):
     if request.method == 'POST':
-        form = postForm(request.POST,request.FILLES)
+        form = postForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
-
     else:
         form = postForm()    
-
     return render(request,'posts/new.html',{'form':form})
+
+def edit_post(request,post_id):
+    date = post.objects.get(id=post_id)
+    if request.method == 'POST':
+        form = postForm(request.POST,request.FILES,instance=date)
+        if form.is_valid():
+            form.save()
+    else:
+        form = postForm(instance=date)    
+    return render(request,'posts/edit.html',{'form':form})
